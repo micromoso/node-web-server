@@ -5,6 +5,9 @@ const hbs = require('hbs')
 
 const app = express()
 
+// Heroku
+const port = process.env.PORT || 3000
+
 // Path
 const publicDir = path.join(__dirname, '../public')
 const viewsDir = path.join(__dirname, '../templates/views')
@@ -53,6 +56,6 @@ app.get('*', (req, res) => {
 
 
 
-app.listen('3000', ()=>{
-    console.log(chalk.green.inverse('Server started at port 3000'))
+app.listen(port, ()=>{
+    console.log(chalk.green.inverse('Server started at port '), port)
 })
